@@ -1,0 +1,24 @@
+﻿@model List<dishes>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>All dishes</h1>
+    <a href="/dish/new"> Add dish</a>
+    @* * add the view one later *@
+    @foreach (var item in Model){
+        @* * we can chage the name of out url  because this is calling the controller then the name of the funtion then adding the DishId  
+        altho i perfer the normal a tag*@
+        <h6>  <a  asp-controller="dishes" asp-action="view_one" asp-route-DishId="@item.DishId" > @item.Name</a>  created by @item.Chef </h6> 
+        <form action="/dish/delete/@item.DishId" method="post"> <button>Delete</button></form>
+        <a href="/dish/edit/@item.DishId"><button>update</button></a>
+
+    }
+    
+</body>
+</html> 

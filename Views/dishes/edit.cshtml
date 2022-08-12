@@ -1,0 +1,51 @@
+@model dishes
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <a href="/">Home</a>
+    <form action="/dish/update/@Model.DishId" method="post">
+        <div>
+            <label asp-for="Name"></label>
+            <span asp-validation-for="Name" ></span>
+        </div>
+        <input type="text" asp-for="Name" value="@Model.Name" placeholder="@Model.Name" id="">
+        <div>
+            <label asp-for="Chef"></label>
+            <span asp-validation-for="Chef" ></span>
+        </div>
+        <input type="text" asp-for="Chef"value="@Model.Chef" placeholder="@Model.Chef"  id="">
+        <div>
+            <label asp-for="Calories"></label>
+            <span asp-validation-for="Calories" ></span>
+        </div>
+        <input type="text" asp-for="Calories" value="@Model.Calories" placeholder="@Model.Calories"  id="">
+        <div>
+            <label asp-for="Tastiness"></label>
+            <span asp-validation-for="Tastiness" ></span>
+        </div>
+        <select asp-for="Tastiness" id="">
+            <option value="">Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <div>
+            <label asp-for="Description"></label>
+            <span asp-validation-for="Description" ></span>
+        </div>
+        <input type="text" asp-for="Description"value="@Model.Description" placeholder="@Model.Description"  id="">
+        <div>
+            <button>Update  Dish</button>
+        </div>
+
+    </form>
+</body>
+</html>
